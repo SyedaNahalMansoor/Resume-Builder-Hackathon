@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f5f5;
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 500px;          
+  max-width: 95%;        
+  margin: 20px auto;
+  padding: 40px 40px;    
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PAGE TITLE */
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 45px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Pehle 18px tha */
+}
+
+
+/* INPUT FIELDS - WIDTH AUTOMATICALLY 100% HO JATI HAI */
+input,
+textarea,
+select {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 2px solid #e8e8e8;
+  font-size: 15px;
+  font-family: "Roboto Condensed", sans-serif;
+  width: 100%; /* YEH 100% HAI TO CONTAINER JITNA WIDE HOGI */
+  background: #fafafa;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #667eea;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: #d0d0d0;
+}
+
+/* DATE INPUT STYLING */
+input[type="date"] {
+  color: #333;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+
+/* BUTTON */
+button {
+  padding: 14px 20px;
+  margin-top: 8px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Roboto Condensed", sans-serif;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* LINK */
+.link {
+  color: #667eea;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .container {
+    padding: 35px 30px;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+}
+
+/* LOADING SPINNER (Optional Enhancement) */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  right: 20px;
+  margin-top: -9px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+@media screen and (max-width : 500px) {
+  .container {
+    width: 400px;
+  }
+}
+@media screen and (max-width : 375px) {
+  .container {
+    width: 350px;
+  }
+}
+@media screen and (max-width : 320px) {
+  .container {
+    width: 300px;
+  }
+}
